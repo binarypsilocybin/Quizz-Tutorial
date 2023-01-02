@@ -41,6 +41,14 @@ export default function App() {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const handleButtonClick = () => {
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      alert('you have reached the final step');
+    }
+  };
 
   return (
     <div className="app">
@@ -62,7 +70,9 @@ export default function App() {
           </div>
           <div className="answer-section">
             {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <button>{answerOption.answerText}</button>
+              <button onClick={handleButtonClick}>
+                {answerOption.answerText}
+              </button>
             ))}
           </div>
         </>
