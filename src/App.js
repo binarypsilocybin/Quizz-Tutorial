@@ -57,6 +57,12 @@ export default function App() {
     }
   };
 
+  const resetStateClick = () => {
+    setCurrentQuestion(0);
+    setShowScore(false);
+    setScore(0);
+  };
+
   return (
     <div className="app">
       {/* HINT: replace "false" with logic to display the 
@@ -64,6 +70,7 @@ export default function App() {
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {questions.length}
+          <button onClick={resetStateClick}>Retry</button>
         </div>
       ) : (
         <>
