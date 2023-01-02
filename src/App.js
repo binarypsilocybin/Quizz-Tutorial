@@ -43,6 +43,7 @@ export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [recordedScore, setRecordedScore] = useState(0);
 
   const handleAnswerButtonClick = (isCorrect) => {
     if (isCorrect === true) {
@@ -61,6 +62,7 @@ export default function App() {
     setCurrentQuestion(0);
     setShowScore(false);
     setScore(0);
+    setRecordedScore(score);
   };
 
   return (
@@ -71,6 +73,9 @@ export default function App() {
         <div className="score-section">
           You scored {score} out of {questions.length}
           <button onClick={resetStateClick}>Retry</button>
+          <div>
+            <p>Your Last Score: {recordedScore}</p>
+          </div>
         </div>
       ) : (
         <>
